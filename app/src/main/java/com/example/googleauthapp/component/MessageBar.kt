@@ -63,6 +63,9 @@ fun MessageBar(messageBarState: MessageBarState) {
             shrinkTowards = Alignment.Top
         )
     ) {
+        /**
+         * we separate this into another composable function
+         */
         Message(
             messageBarState = messageBarState,
             errorMessage = errorMessage
@@ -70,6 +73,11 @@ fun MessageBar(messageBarState: MessageBarState) {
     }
 }
 
+
+/**
+ * we separate this into another composable function, to preview this one
+ * we can't preview the one above because it shows only when startAnimation is true
+ */
 @Composable
 fun Message(
     messageBarState: MessageBarState,
