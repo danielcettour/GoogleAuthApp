@@ -11,6 +11,7 @@ val ErrorRed = Color(0xFFFF6C60)
 val InfoGreen = Color(0xFF00C096)
 val LoadingBlue = Color(0xFF1A73E8)
 
+// extension of Colors class
 val Colors.topAppBarContentColor: Color
     get() = if (isLight) Color.White else Color.LightGray
 
