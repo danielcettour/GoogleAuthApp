@@ -12,12 +12,19 @@ import javax.inject.Inject
 /**
  * RepositoryImpl implements Repository
  * (DataStoreOperationsImpl implements DataStoreOperations)
- * we inject DataStoreOperations, but not implement it (like in DataStoreOperationsImpl)
+ * we inject the interface DataStoreOperations, but not implement it (like in DataStoreOperationsImpl)
+ *
+ * we'll create a Dagger/Hilt module later to provide the interface,
+ * but instead of providing the interface, we'll provide its implementation
+ *
+ * later, this RepositoryImpl will be injected into a viewmodel
  */
 class RepositoryImpl @Inject constructor(
     private val dataStoreOperations: DataStoreOperations,
     //   private val ktorApi: KtorApi
 ) : Repository {
+
+    // either if we implement the interface, or inject it, we'll have to override the methods
     override suspend fun saveSignedInState(signedIn: Boolean) {
         dataStoreOperations.saveSignedInState(signedIn = signedIn)
     }
